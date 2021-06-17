@@ -4,6 +4,7 @@ import { CompanyLogoModule } from 'src/app/components/company-logo/company-logo.
 import { BookingConfirmationComponent } from './booking-confirmation.component';
 import { BookingConfirmationRoutingModule } from './booking-confirmation-routing.module';
 import { OfferModule } from 'src/app/components/offer/offer.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [BookingConfirmationComponent],
@@ -12,6 +13,8 @@ import { OfferModule } from 'src/app/components/offer/offer.module';
     CompanyLogoModule,
     BookingConfirmationRoutingModule,
     OfferModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class BookingConfirmationModule { }
