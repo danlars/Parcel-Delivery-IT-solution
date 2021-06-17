@@ -20,7 +20,9 @@ namespace Parcel_Delivery_IT_solution.Controllers
                 CustomerId = 1,
                 RegistrationNumber = 2,
                 Email = "some-email@mail.com",
-                TelephoneNumber = "12345678"
+                TelephoneNumber = "12345678",
+                ZipCode = "1234",
+                CityOfResidence = "Copenhagen"
             };
 
             return customer;
