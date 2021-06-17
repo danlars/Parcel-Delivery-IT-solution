@@ -1,18 +1,32 @@
-import { createSelector } from "@ngrx/store";
+import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { StoreStateInterface } from "./store-state.interface";
 
-export const selectCustomer = createSelector((state: StoreStateInterface) => {
+const appFeatureSelector = createFeatureSelector<StoreStateInterface>("appState");
+
+export const selectCustomer = createSelector(
+  appFeatureSelector,
+  (state: StoreStateInterface) => {
     return state.selectedCustomer;
-}, (customer) => customer);
+  }
+);
 
-export const selectBookingInformation = createSelector((state: StoreStateInterface) => {
+export const selectBookingInformation = createSelector(
+  appFeatureSelector,
+  (state: StoreStateInterface) => {
     return state.bookingInformation;
-}, (bookingInformation) => bookingInformation);
+  }
+);
 
-export const selectOffer = createSelector((state: StoreStateInterface) => {
+export const selectOffer = createSelector(
+  appFeatureSelector,
+  (state) => {
     return state.selectedOffer;
-}, (offer) => offer);
+  }
+);
 
-export const selectOffers = createSelector((state: StoreStateInterface) => {
+export const selectOffers = createSelector(
+  appFeatureSelector,
+  (state: StoreStateInterface) => {
     return state.offers;
-}, (offers) => offers);
+  }
+);

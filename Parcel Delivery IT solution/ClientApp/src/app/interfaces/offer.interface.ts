@@ -1,5 +1,5 @@
 export interface OfferInterface {
-    period: string;
-    type: string;
+    time: number;
+    routeType: string;
     price: number;
 }

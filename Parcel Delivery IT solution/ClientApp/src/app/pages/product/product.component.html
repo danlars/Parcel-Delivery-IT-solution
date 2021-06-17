@@ -1,43 +1,60 @@
 <div class="card">
   <div class="card-body">
     <h3 class="fw-bold">Booking information</h3>
-
-    <div class="row mb-3">
-      <div class="col-6">
-        <label class="form-label">Destination from</label>
-        <input class="form-control" value="Kapsten" />
-      </div>
-      <div class="col-6">
-        <label class="form-label">Destination to</label>
-        <input class="form-control" value="Kabato" />
-      </div>
-      <div class="col-6">
-        <label class="form-label">Weight in kilograms</label>
-        <input class="form-control" value="0,5" />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6 has-validation">
-        <label class="form-label">Height in metres</label>
-        <input class="form-control is-invalid" placeholder="Fill out the height of the order" />
-        <div class="invalid-feedback">
-          You must provide height of the order
+    <form [formGroup]="bookingForm">
+      <div class="row mb-3">
+        <div class="col-6">
+          <label for="info_from" class="form-label">Destination from</label>
+          <input class="form-control" id="info_from" formControlName="from" />
+        </div>
+        <div class="col-6">
+          <label for="info_to" class="form-label">Destination to</label>
+          <input class="form-control" id="info_to" formControlName="to" />
+        </div>
+        <div class="col-6">
+          <label for="info_weight" class="form-label"
+            >Weight in kilograms</label
+          >
+          <input
+            class="form-control"
+            id="info_weight"
+            formControlName="weight"
+          />
         </div>
       </div>
-      <div class="col-6">
-        <label class="form-label">Length in  metres</label>
-        <input class="form-control" value="1" />
+      <div class="row">
+        <div class="col-6 has-validation">
+          <label for="info_height" class="form-label">Height in metres</label>
+          <input
+            class="form-control is-invalid"
+            id="info_height"
+            formControlName="height"
+            placeholder="Fill out the height of the order"
+          />
+          <div class="invalid-feedback">
+            You must provide height of the order
+          </div>
+        </div>
+        <div class="col-6">
+          <label class="form-label">Length in metres</label>
+          <input class="form-control" formControlName="length" />
+        </div>
+        <div class="col-6">
+          <label class="form-label">Width in metres</label>
+          <input class="form-control" formControlName="width" />
+        </div>
       </div>
-      <div class="col-6">
-        <label class="form-label">Width in metres</label>
-        <input class="form-control" value="1" />
+      <div class="text-end">
+        <button
+          class="btn btn-primary"
+          type="button"
+          (click)="submitBookingInformation()"
+        >
+          Get offers
+        </button>
       </div>
-    </div>
-    <div class="text-end">
-      <button class="btn btn-primary" (click)="submitBookingInformation()">Get offers</button>
-    </div>
-
-    <h3 class="fw-bold">Offers</h3>  
+    </form>
+    <h3 class="fw-bold">Offers</h3>
     <div class="row mb-3">
       <div class="col-4">
         <span class="fw-bold">Customer offers</span>
@@ -47,10 +64,18 @@
         <span class="fw-bold">Selected offer</span>
       </div>
     </div>
-    <app-offer [deliveryTime]="'100 days'" [packageType]="'Fastest'"></app-offer>
-    <app-offer [deliveryTime]="'300 days'" [packageType]="'Cheapest'"></app-offer>
+    <div *ngFor="let offer of offers$ | async">
+      <app-offer
+        [offer]="offer"
+      ></app-offer>
+    </div>
     <div class="text-end">
-      <a class="btn btn-primary" [ngClass]="{'disabled': !selectedOffer}" routerLink="/booking-confirmation">
+      <a
+        class="btn btn-primary"
+        [ngClass]="{ disabled: !selectedOffer }"
+        (click)="!selectedOffer && $event.preventDefault()"
+        routerLink="/booking-confirmation"
+      >
         Proceed
       </a>
     </div>

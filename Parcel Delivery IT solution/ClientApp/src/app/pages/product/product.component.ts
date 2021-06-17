@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Observable } from "rxjs";
 import { OfferService } from "src/app/http/offer/offer.service";
 import { BookingInformationInterface } from "src/app/interfaces/booking-information.interface";
 import { OfferInterface } from "src/app/interfaces/offer.interface";
@@ -11,27 +13,25 @@ import { StoreStateService } from "src/app/store/store-state.service";
 })
 export class ProductComponent implements OnInit {
   selectedOffer: OfferInterface | null = null;
-  offers: OfferInterface[] = [];
-  bookingInformation: BookingInformationInterface = {
-    from: "",
-    to: "",
-    height: "",
-    length: "",
-    weight: "",
-    width: "",
-  };
+  offers$: Observable<OfferInterface[]>;
+  bookingForm = new FormGroup({
+    from: new FormControl('', [Validators.required]),
+    to: new FormControl('', [Validators.required]),
+    height: new FormControl('', [Validators.required]),
+    length: new FormControl('', [Validators.required]),
+    weight: new FormControl('', [Validators.required]),
+    width: new FormControl('', [Validators.required]),
+  });
   constructor(private stateService: StoreStateService, private offerService: OfferService) {
+    this.offers$ = this.stateService.offers$;
   }
 
   ngOnInit(): void {
-    this.stateService.offers$.subscribe((offers) => {
-      this.offers = offers;
-    });
-
     this.stateService.selectedBookingInformation$.subscribe(
       (bookingInformation) => {
         if (bookingInformation) {
-          this.bookingInformation = bookingInformation;
+          // Apply previous session input..
+          this.bookingForm.patchValue(bookingInformation);
         }
       }
     );
@@ -42,11 +42,12 @@ export class ProductComponent implements OnInit {
   }
 
   submitBookingInformation() {
-    this.offerService.getOffers(this.bookingInformation);
-    this.setBookingInformation();
+    const bookingInformation = this.bookingForm.value as BookingInformationInterface;
+    this.offerService.getOffers(bookingInformation);
+    this.setBookingInformation(bookingInformation);
   }
 
-  setBookingInformation() {
-    this.stateService.setBookingInformation(this.bookingInformation);
+  setBookingInformation(bookingInformation: BookingInformationInterface) {
+    this.stateService.setBookingInformation(bookingInformation);
   }
 }
