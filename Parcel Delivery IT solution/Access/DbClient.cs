@@ -19,7 +19,7 @@ namespace Parcel_Delivery_IT_solution
             customer.TelephoneNumber = "123456";
             customer.RegistrationNumber = 1234567;
 
-            return customer
+            return customer;
         }
     }
 }
