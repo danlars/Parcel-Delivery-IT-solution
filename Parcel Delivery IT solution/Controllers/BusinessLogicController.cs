@@ -17,8 +17,16 @@ namespace Parcel_Delivery_IT_solution.Controllers
             
             Route route = new()
             {
+                RouteType = "Cheapest",
                 Price = 10,
                 Time = 15
+            };
+
+            Route route = new()
+            {
+                RouteType = "Fastest",
+                Price = 14,
+                Time = 9
             };
 
             return route;
