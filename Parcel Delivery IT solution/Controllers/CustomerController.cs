@@ -13,6 +13,10 @@ namespace Parcel_Delivery_IT_solution.Controllers
         public Customer Get(String customerId)
         {
 
+            DbClient client = new DbClient();
+
+            DbClient.getCustomer()
+            
             // TODO: Call the database to get a customer given the ID
 
             Customer customer = new()
