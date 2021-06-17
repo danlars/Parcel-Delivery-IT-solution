@@ -13,7 +13,7 @@ namespace Parcel_Delivery_IT_solution.Controllers
         [Microsoft.AspNetCore.Mvc.HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public Boolean InsertPackage(RouteDTO routeDTO)
+        public Boolean InsertPackage(Order order)
         {
             // Insert RouteDTO to database
 

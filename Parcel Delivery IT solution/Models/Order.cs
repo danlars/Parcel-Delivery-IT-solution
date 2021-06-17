@@ -2,7 +2,7 @@ using System;
 
 namespace Parcel_Delivery_IT_solution
 {
-    public class RouteDTO
+    public class Order
     {
         public int CustomerId { get; set; }
 

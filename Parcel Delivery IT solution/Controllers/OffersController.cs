@@ -15,7 +15,7 @@ namespace Parcel_Delivery_IT_solution.Controllers
             // Return the best routes
 
 
-            Map map = new Map(package);
+            Map map = new Map("os");
 
             Route routeFast = map.getFastestRoute();
             Route routeCheapest = map.getCheapestRoute();
@@ -24,21 +24,6 @@ namespace Parcel_Delivery_IT_solution.Controllers
 
             // Create a Map object
             
-
-            
-            Route routeCheapest = new Route()
-            {
-                RouteType = "Cheapest",
-                Price = 10,
-                Time = 15
-            };
-
-            Route routeFast = new Route()
-            {
-                RouteType = "Fastest",
-                Price = 14,
-                Time = 9
-            };
 
             List<Route> RouteList = new List<Route>();
             RouteList.Add(routeCheapest);

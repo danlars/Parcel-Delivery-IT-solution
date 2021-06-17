@@ -6,10 +6,11 @@ namespace Parcel_Delivery_IT_solution
     {
 
         String MapType;
+
         // Create a map.
-        public Map(String mapType)
+        public Map(string maptype)
         {
-            MapType = mapType;
+            MapType = maptype;
         }
 
         public void updateMap()
@@ -19,12 +20,28 @@ namespace Parcel_Delivery_IT_solution
 
         public Route getFastestRoute()
         {
-            return new Route();
+
+            Route routeCheapest = new Route()
+            {
+                RouteType = "Cheapest",
+                Price = 10,
+                Time = 15
+            };
+
+            return routeCheapest;
         }
 
         public Route getCheapestRoute()
         {
-            return new Route();
+
+            Route routeFast = new Route()
+            {
+                RouteType = "Fastest",
+                Price = 14,
+                Time = 9
+            };
+
+            return routeFast;
         }
 
         // Removed package from the customer object.

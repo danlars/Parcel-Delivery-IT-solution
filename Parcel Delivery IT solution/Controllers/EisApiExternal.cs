@@ -1,35 +1,22 @@
-/*
-using ProductsApp.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Web.Http;
 
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+using System;
 
 namespace Parcel_Delivery_IT_solution.Controllers
 {
-    public class ValuesController : ApiController
+    [ApiController]
+    [Microsoft.AspNetCore.Mvc.Route("[controller]")]
+    public class EisExternalController : Microsoft.AspNetCore.Mvc.ControllerBase
     {
-        static string _address = "http://api.worldbank.org/countries?format=json";
-        private string result;
+        public EisExternalController() { }
 
-        // GET api/values
-        public IEnumerable<string> Get()
+        [System.Web.Mvc.HttpGet]
+        public string Get(string CityFrom, string CityTo, int Weight)
         {
-            GetResponse();
-            return new string[] { result, "value2" };
-        }
-
-        private async void GetResponse()
-        {
-            var client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync(_address);
-            response.EnsureSuccessStatusCode();
-            result = await response.Content.ReadAsStringAsync();
+            string jsonString = "{'Price':" + CityFrom + ", 'Time':" + 2;
+            return jsonString;
         }
     }
 }
-*/
+
+
