@@ -33,6 +33,9 @@
         <input class="form-control" value="1" />
       </div>
     </div>
+    <div class="text-end">
+      <button class="btn btn-primary" (click)="submitBookingInformation()">Get offers</button>
+    </div>
 
     <h3 class="fw-bold">Offers</h3>  
     <div class="row mb-3">
@@ -47,7 +50,7 @@
     <app-offer [deliveryTime]="'100 days'" [packageType]="'Fastest'"></app-offer>
     <app-offer [deliveryTime]="'300 days'" [packageType]="'Cheapest'"></app-offer>
     <div class="text-end">
-      <a class="btn btn-primary" routerLink="/booking-confirmation">
+      <a class="btn btn-primary" [ngClass]="{'disabled': !selectedOffer}" routerLink="/booking-confirmation">
         Proceed
       </a>
     </div>

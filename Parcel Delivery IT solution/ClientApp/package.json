@@ -22,7 +22,6 @@
     "@angular/router": "~12.0.4",
     "@ngrx/store": "^12.1.0",
     "bootstrap": "^5.0.1",
-    "dexie": "^3.0.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "uuid": "^8.3.2",
