@@ -10,8 +10,24 @@ namespace Parcel_Delivery_IT_solution.Controllers
         public OffersController(){}
 
         [System.Web.Mvc.HttpGet]
-        public List<Route> Get(Package package)
+        public List<Route> Get(string from, string to, int height, int length, int width)
         {
+            // Package package
+
+            /*
+             public string from { get; set; }
+
+            public string to { get; set; }
+
+            public string weight { get; set; }
+
+            public string height { get; set; }
+
+            public string length { get; set; }
+
+            public string width { get; set; }
+            */
+
             // Return the best routes
 
 
