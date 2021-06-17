@@ -2,14 +2,19 @@ using System;
 
 namespace Parcel_Delivery_IT_solution
 {
-    public class WeatherForecast
+    public class Customer
     {
-        public DateTime Date { get; set; }
+        public int CustomerId { get; set; }
 
-        public int TemperatureC { get; set; }
+        public int RegistrationNumber { get; set; }
 
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+        public string Email { get; set; }
 
-        public string Summary { get; set; }
+        public string Name { get; set; }
+
+        public string TelephoneNumber { get; set; }
+
+        // Removed package from the customer object.
+
     }
 }

@@ -1,32 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web.Mvc;
 
 namespace Parcel_Delivery_IT_solution.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class BusinessLogicController : ControllerBase
+    [Microsoft.AspNetCore.Mvc.Route("[controller]")]
+    public class CustomerController : Microsoft.AspNetCore.Mvc.ControllerBase
     {
-        public BusinessLogicController(){}
+        public CustomerController(){}
 
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Create(FormCollection collection)
+        [System.Web.Mvc.HttpGet]
+        public Customer Get(String customerId)
         {
-            try
-            {
-                // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
+            // TODO: Call the database to get a customer given the ID
+
+            Customer customer = new()
             {
-                return View();
-            }
+                CustomerId = 1,
+                RegistrationNumber = 2,
+                Email = "some-email@mail.com",
+                TelephoneNumber = "12345678"
+            };
+
+            return customer;
         }
     }
 }

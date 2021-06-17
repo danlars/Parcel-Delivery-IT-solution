@@ -15,7 +15,7 @@ namespace Parcel_Delivery_IT_solution.Controllers
             
             // TODO: Call the business logic returning the route
             
-            Route route = new Route
+            Route route = new()
             {
                 Price = 10,
                 Time = 15
