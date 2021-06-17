@@ -13,7 +13,7 @@ namespace Parcel_Delivery_IT_solution.Controllers
         [System.Web.Mvc.HttpGet]
         public string Get(string CityFrom, string CityTo, int Weight)
         {
-            string jsonString = "{'Price':" + CityFrom + ", 'Time':" + 2;
+            string jsonString = "{'Price':" + CityFrom + ", 'Time':" + 2 + "}";
             return jsonString;
         }
     }
