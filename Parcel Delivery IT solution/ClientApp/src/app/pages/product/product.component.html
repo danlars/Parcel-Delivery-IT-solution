@@ -1,0 +1,77 @@
+<div class="card">
+  <div class="card-body">
+    <h3 class="fw-bold">Booking information</h3>
+
+    <div class="row mb-3">
+      <div class="col-6">
+        <label class="form-label">Destination from</label>
+        <input class="form-control" value="Kapsten" />
+      </div>
+      <div class="col-6">
+        <label class="form-label">Destination to</label>
+        <input class="form-control" value="Kabato" />
+      </div>
+      <div class="col-6">
+        <label class="form-label">Weight in kilograms</label>
+        <input class="form-control" value="0,5" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 has-validation">
+        <label class="form-label">Height in metres</label>
+        <input class="form-control is-invalid" placeholder="Fill out the height of the order" />
+        <div class="invalid-feedback">
+          You must provide height of the order
+        </div>
+      </div>
+      <div class="col-6">
+        <label class="form-label">Length in  metres</label>
+        <input class="form-control" value="1" />
+      </div>
+      <div class="col-6">
+        <label class="form-label">Width in metres</label>
+        <input class="form-control" value="1" />
+      </div>
+    </div>
+
+    <h3 class="fw-bold">Offers</h3>  
+    <div class="row mb-3">
+      <div class="col-4">
+        <span class="fw-bold">Customer offers</span>
+      </div>
+      <div class="col-4"></div>
+      <div class="col-4">
+        <span class="fw-bold">Selected offer</span>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-4">
+        <label class="visually-hidden">Days left</label>
+        <input disabled placeholder="100 days" class="form-control"/>
+      </div>
+      <div class="col-4 text-center">
+        <p class="my-0">Fastest</p>
+      </div>
+      <div class="col-4">
+        <label class="visually-hidden">Offer</label>
+        <input type="radio" checked />
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-4">
+        <input disabled placeholder="350 days" class="form-control" />
+      </div>
+      <div class="col-4 text-center">
+        <span>Cheapest</span>
+      </div>
+      <div class="col-4">
+        <input type="radio" />
+      </div>
+    </div>
+    <div class="text-end">
+      <a class="btn btn-primary" routerLink="/booking-confirmation">
+        Proceed
+      </a>
+    </div>
+  </div>
+</div>
