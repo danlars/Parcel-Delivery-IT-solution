@@ -1,0 +1,13 @@
+<div class="row mb-3">
+    <div class="col-4">
+      <label class="visually-hidden">Days left</label>
+      <input disabled [placeholder]="deliveryTime" class="form-control"/>
+    </div>
+    <div class="col-4 text-center">
+      <p class="my-0">{{packageType}}</p>
+    </div>
+    <div class="col-4">
+      <label [for]="offerId" class="visually-hidden">Offer</label>
+      <input [id]="offerId" type="radio" />
+    </div>
+  </div>

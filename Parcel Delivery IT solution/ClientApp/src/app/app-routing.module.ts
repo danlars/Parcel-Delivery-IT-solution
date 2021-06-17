@@ -1,26 +1,25 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { BookingConfirmationComponent } from './pages/booking-confirmation/booking-confirmation.component';
-import { InvoiceComponent } from './pages/invoice/invoice.component';
-import { ProductComponent } from './pages/product/product.component';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    component: ProductComponent,
+    loadChildren: () => import('./pages/product/product.module').then(m => m.ProductModule) 
   },
   {
     path: 'booking-confirmation',
-    component: BookingConfirmationComponent,
+    loadChildren: () => import('./pages/booking-confirmation/booking-confirmation.module').then(m => m.BookingConfirmationModule)
   },
   {
     path: 'invoice',
-    component: InvoiceComponent,
+    loadChildren: () => import('./pages/invoice/invoice.module').then(m => m.InvoiceModule)
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+  ],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}
