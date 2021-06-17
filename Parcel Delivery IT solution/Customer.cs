@@ -14,6 +14,11 @@ namespace Parcel_Delivery_IT_solution
 
         public string TelephoneNumber { get; set; }
 
+        public string ZipCode { get; set; }
+
+        public string CityOfResidence { get; set; }
+
+
         // Removed package from the customer object.
 
     }
