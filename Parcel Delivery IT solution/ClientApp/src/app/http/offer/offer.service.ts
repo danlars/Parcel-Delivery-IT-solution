@@ -22,21 +22,9 @@ export class OfferService {
           length: bookingInformation.length,
           width: bookingInformation.width,
         },
-      });
+      })
       // .subscribe((response) => {
-      //   //const offers = response as unknown as OfferInterface[];
-      //   const offers: OfferInterface[] = [
-      //     {
-      //       routeType: "Fastest",
-      //       price: 14,
-      //       time: 9,
-      //     },
-      //     {
-      //       routeType: "Cheapest",
-      //       price: 10,
-      //       time: 15,
-      //     },
-      //   ];
+      //   const offers = response as unknown as OfferInterface[];
       //   this.storeStateService.setOffers(offers);
       //   this.storeStateService.setOffer(offers[0]);
       // });

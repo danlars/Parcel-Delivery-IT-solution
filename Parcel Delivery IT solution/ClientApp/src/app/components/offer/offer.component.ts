@@ -42,6 +42,6 @@ export class OfferComponent implements OnInit {
   }
 
   setOffer() {
-
+    this.offerService.setOffer(this.offer);
   }
 }

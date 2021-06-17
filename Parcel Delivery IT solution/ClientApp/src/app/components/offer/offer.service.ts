@@ -6,14 +6,13 @@ import { StoreStateService } from 'src/app/store/store-state.service';
 export class OfferService {
   private selectedOffer: OfferInterface | null = null;
   
-  constructor(private readonly storeStateService: StoreStateService) { 
+  constructor(private readonly storeStateService: StoreStateService) {
     this.storeStateService.selectedOffer$.subscribe((offer) => {
       this.selectedOffer = offer;
     });
   }
 
   setOffer(offer: OfferInterface) {
-    console.log(offer);
     this.storeStateService.setOffer(offer);
   }
 

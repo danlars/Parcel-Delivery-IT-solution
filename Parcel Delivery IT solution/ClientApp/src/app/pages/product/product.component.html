@@ -4,48 +4,47 @@
     <form [formGroup]="bookingForm">
       <div class="row mb-3">
         <div class="col-6">
-          <label for="info_from" class="form-label">Destination from</label>
-          <input class="form-control" id="info_from" formControlName="from" />
+          <label for="info_from" class="form-label">Destination from*</label>
+          <input class="form-control" id="info_from" placeholder="Destination from..." formControlName="from" />
         </div>
         <div class="col-6">
-          <label for="info_to" class="form-label">Destination to</label>
-          <input class="form-control" id="info_to" formControlName="to" />
+          <label for="info_to" class="form-label">Destination to*</label>
+          <input class="form-control" id="info_to" placeholder="Destination to..." formControlName="to" />
         </div>
         <div class="col-6">
           <label for="info_weight" class="form-label"
-            >Weight in kilograms</label
+            >Weight in kilograms*</label
           >
           <input
             class="form-control"
             id="info_weight"
+            placeholder=""
             formControlName="weight"
           />
         </div>
       </div>
       <div class="row">
-        <div class="col-6 has-validation">
-          <label for="info_height" class="form-label">Height in metres</label>
+        <div class="col-6">
+          <label for="info_height" class="form-label">Height in metres*</label>
           <input
-            class="form-control is-invalid"
+            class="form-control"
             id="info_height"
             formControlName="height"
             placeholder="Fill out the height of the order"
           />
-          <div class="invalid-feedback">
-            You must provide height of the order
-          </div>
         </div>
         <div class="col-6">
-          <label class="form-label">Length in metres</label>
+          <label class="form-label">Length in metres*</label>
           <input class="form-control" formControlName="length" />
         </div>
         <div class="col-6">
-          <label class="form-label">Width in metres</label>
+          <label class="form-label">Width in metres*</label>
           <input class="form-control" formControlName="width" />
         </div>
       </div>
       <div class="text-end">
         <button
+          [disabled]="bookingForm.invalid"
           class="btn btn-primary"
           type="button"
           (click)="submitBookingInformation()"
