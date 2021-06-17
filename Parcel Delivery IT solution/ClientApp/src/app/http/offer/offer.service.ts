@@ -4,12 +4,17 @@ import { BookingInformationInterface } from "src/app/interfaces/booking-informat
 
 @Injectable()
 export class OfferService {
-  constructor(private readonly http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   getOffers(bookingInformation: BookingInformationInterface) {
     this.http.get("/Offers", {
       params: {
-        ...bookingInformation,
+        from: bookingInformation.from,
+        to: bookingInformation.to,
+        weight: bookingInformation.weight,
+        height: bookingInformation.height,
+        length: bookingInformation.length,
+        width: bookingInformation.width,
       },
     });
   }

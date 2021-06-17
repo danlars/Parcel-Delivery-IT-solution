@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { StoreStateService } from './store-state.service';
 import {StoreModule} from '@ngrx/store';
-import { bookingInformationReducer, offersReducer, selectedOfferReducer } from './reducers';
+import { bookingInformationReducer, offersReducer, selectedCustomerReducer, selectedOfferReducer } from './reducers';
 
 
 @NgModule({
@@ -9,7 +9,7 @@ import { bookingInformationReducer, offersReducer, selectedOfferReducer } from '
     StoreModule.forRoot({
       selectedOffer: selectedOfferReducer,
       bookingInformation: bookingInformationReducer,
-      selectedCustomer: selectedOfferReducer,
+      selectedCustomer: selectedCustomerReducer,
       offers: offersReducer,
     })
   ],

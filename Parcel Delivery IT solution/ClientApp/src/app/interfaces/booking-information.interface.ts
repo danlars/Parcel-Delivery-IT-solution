@@ -1,8 +1,8 @@
 export interface BookingInformationInterface {
     from: string;
     to: string;
-    weight: number;
-    height: number;
-    length: number;
-    width: number;
+    weight: string;
+    height: string;
+    length: string;
+    width: string;
 }
