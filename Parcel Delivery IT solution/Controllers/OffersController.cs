@@ -10,10 +10,21 @@ namespace Parcel_Delivery_IT_solution.Controllers
         public OffersController(){}
 
         [System.Web.Mvc.HttpGet]
-        public List<Route> Get()
+        public List<Route> Get(Package package)
         {
-            
+            // Return the best routes
+
+
+            Map map = new Map(package);
+
+            Route routeFast = map.getFastestRoute();
+            Route routeCheapest = map.getCheapestRoute();
+
             // TODO: Call the business logic returning the route
+
+            // Create a Map object
+            
+
             
             Route routeCheapest = new Route()
             {

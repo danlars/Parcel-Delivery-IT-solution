@@ -15,7 +15,6 @@ namespace Parcel_Delivery_IT_solution.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public Boolean InsertPackage(RouteDTO routeDTO)
         {
-            
             // Insert RouteDTO to database
 
             return true;

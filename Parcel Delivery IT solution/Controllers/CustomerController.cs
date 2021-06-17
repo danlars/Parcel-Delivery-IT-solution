@@ -10,24 +10,15 @@ namespace Parcel_Delivery_IT_solution.Controllers
         public CustomerController(){}
 
         [System.Web.Mvc.HttpGet]
-        public Customer Get(String customerId)
+        public Customer Get(int customerId)
         {
+            // Returns the costumer information
 
             DbClient client = new DbClient();
 
-            DbClient.getCustomer()
+            Customer customer = client.getCustomer(customerId);
             
             // TODO: Call the database to get a customer given the ID
-
-            Customer customer = new()
-            {
-                CustomerId = 1,
-                RegistrationNumber = 2,
-                Email = "some-email@mail.com",
-                TelephoneNumber = "12345678",
-                ZipCode = "1234",
-                CityOfResidence = "Copenhagen"
-            };
 
             return customer;
         }
