@@ -18,6 +18,7 @@ namespace Parcel_Delivery_IT_solution
             customer.Name = "Anders And";
             customer.TelephoneNumber = "123456";
             customer.RegistrationNumber = 1234567;
+            customer.CustomerId = 1;
 
             return customer;
         }
