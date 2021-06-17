@@ -44,30 +44,8 @@
         <span class="fw-bold">Selected offer</span>
       </div>
     </div>
-    <div class="row mb-3">
-      <div class="col-4">
-        <label class="visually-hidden">Days left</label>
-        <input disabled placeholder="100 days" class="form-control"/>
-      </div>
-      <div class="col-4 text-center">
-        <p class="my-0">Fastest</p>
-      </div>
-      <div class="col-4">
-        <label class="visually-hidden">Offer</label>
-        <input type="radio" checked />
-      </div>
-    </div>
-    <div class="row mb-3">
-      <div class="col-4">
-        <input disabled placeholder="350 days" class="form-control" />
-      </div>
-      <div class="col-4 text-center">
-        <span>Cheapest</span>
-      </div>
-      <div class="col-4">
-        <input type="radio" />
-      </div>
-    </div>
+    <app-offer [deliveryTime]="'100 days'" [packageType]="'Fastest'"></app-offer>
+    <app-offer [deliveryTime]="'300 days'" [packageType]="'Cheapest'"></app-offer>
     <div class="text-end">
       <a class="btn btn-primary" routerLink="/booking-confirmation">
         Proceed
