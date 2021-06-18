@@ -13,7 +13,24 @@ namespace Parcel_Delivery_IT_solution.Controllers
         [System.Web.Mvc.HttpGet]
         public string Get(string CityFrom, string CityTo, int Weight)
         {
-            string jsonString = "{'Price':" + CityFrom + ", 'Time':" + 2 + "}";
+            string jsonString;
+            int price;
+            int time;
+            if (Weight > 100000)
+            {
+                return jsonString = "{'Weight above 100 kgs':" + 0 + ", '':" + 0 + "}";
+            }
+            if (CityFrom == "Amatave" & CityTo == "Kap Guardafui")
+            {
+                price = 8 * 5;
+                time = 8 * 12;
+            }
+            else if (CityFrom == "Cairo" & CityTo == "Suakin")
+            {
+                price = 4 * 5;
+                time = 4 * 5;
+            }
+            jsonString = "{'Price':" +  + ", 'Time':" +  + "}";
             return jsonString;
         }
     }
