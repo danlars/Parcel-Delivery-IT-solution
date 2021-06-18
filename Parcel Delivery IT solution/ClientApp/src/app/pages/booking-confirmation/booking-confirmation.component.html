@@ -65,14 +65,14 @@
         </div>
       </div>
       <div class="text-end">
-        <a
+        <button
+          aria-label="Confirm booking & Naviagate to Invoice Page"
           class="btn btn-success text-white"
-          [ngClass]="{ disabled: !selectedCustomer }"
-          (click)="!selectedCustomer && $event.preventDefault()"
-          routerLink="/invoice"
+          [disabled]="!selectedCustomer"
+          (click)="createInvoice()"
         >
           Book
-        </a>
+      </button>
       </div>
     </div>
   </div>

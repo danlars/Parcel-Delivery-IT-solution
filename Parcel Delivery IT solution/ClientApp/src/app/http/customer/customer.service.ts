@@ -8,6 +8,7 @@ export class CustomerService {
   constructor(private readonly http: HttpClient, private readonly storeStateService: StoreStateService) {}
 
   getCustomer(customerId: string) {
+    this.storeStateService.setCustomer(null);
     this.http.get("/Customer", { params: {customerId} }).subscribe((response) => {
       const customer = response as CustomerInterface;
       this.storeStateService.setCustomer(customer);

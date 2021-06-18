@@ -25,7 +25,7 @@ export class StoreStateService {
     this.createdInvoice$ = this.store.pipe(select(selectCreatedInvoice));
   }
 
-  setCustomer(customer: CustomerInterface) {
+  setCustomer(customer: CustomerInterface | null) {
     this.store.dispatch(setCustomer({customer}));
   }
 

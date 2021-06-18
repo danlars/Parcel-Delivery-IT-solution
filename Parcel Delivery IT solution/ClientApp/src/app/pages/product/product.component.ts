@@ -33,6 +33,7 @@ export class ProductComponent implements OnInit {
         if (bookingInformation) {
           // Apply previous session input..
           this.bookingForm.patchValue(bookingInformation);
+          this.bookingForm.patchValue({departure: bookingInformation.departure.toISOString()});
         }
       }
     );

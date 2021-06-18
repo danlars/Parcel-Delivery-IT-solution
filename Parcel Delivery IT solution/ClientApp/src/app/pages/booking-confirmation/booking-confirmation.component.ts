@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { CustomerService } from "src/app/http/customer/customer.service";
 import { InvoiceService } from "src/app/http/invoice/invoice.service";
 import { BookingInformationInterface } from "src/app/interfaces/booking-information.interface";
@@ -19,7 +20,7 @@ export class BookingConfirmationComponent implements OnInit {
   selectedOffer: OfferInterface | null = null;
   customerFormControl = new FormControl('', [Validators.required]);
 
-  constructor(private stateService: StoreStateService, private customerService: CustomerService, private readonly invoiceService: InvoiceService) {
+  constructor(private stateService: StoreStateService, private customerService: CustomerService, private readonly invoiceService: InvoiceService, private readonly router: Router) {
 
   }
   ngOnInit(): void {
