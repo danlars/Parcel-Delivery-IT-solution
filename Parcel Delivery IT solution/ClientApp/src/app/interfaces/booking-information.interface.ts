@@ -1,4 +1,5 @@
 export interface BookingInformationInterface {
+    departure: Date;
     from: string;
     to: string;
     weight: string;

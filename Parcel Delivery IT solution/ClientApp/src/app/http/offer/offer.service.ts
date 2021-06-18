@@ -21,6 +21,7 @@ export class OfferService {
           height: bookingInformation.height,
           length: bookingInformation.length,
           width: bookingInformation.width,
+          date: bookingInformation.departure.toISOString()
         },
       })
       .subscribe((response) => {
