@@ -15,6 +15,7 @@ export class ProductComponent implements OnInit {
   selectedOffer: OfferInterface | null = null;
   offers$: Observable<OfferInterface[]>;
   bookingForm = new FormGroup({
+    departure: new FormControl('', [Validators.required]),
     from: new FormControl('', [Validators.required]),
     to: new FormControl('', [Validators.required]),
     height: new FormControl('', [Validators.required]),

@@ -30,3 +30,10 @@ export const selectOffers = createSelector(
     return state.offers;
   }
 );
+
+export const selectCreatedInvoice = createSelector(
+  appFeatureSelector,
+  (state: StoreStateInterface) => {
+    return state.createdInvoice;
+  }
+);

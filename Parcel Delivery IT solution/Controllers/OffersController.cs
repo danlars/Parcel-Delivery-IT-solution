@@ -10,28 +10,18 @@ namespace Parcel_Delivery_IT_solution.Controllers
         public OffersController(){}
 
         [System.Web.Mvc.HttpGet]
-        public List<Route> Get(string from, string to, int height, int length, int width)
+        public List<Route> Get(string from, string to, int height, int length, int width, int weight)
         {
             // Package package
-            //Package package = new Package(from, to, height, length, width);
-
-            /*
-             public string from { get; set; }
-
-            public string to { get; set; }
-
-            public string weight { get; set; }
-
-            public string height { get; set; }
-
-            public string length { get; set; }
-
-            public string width { get; set; }
-            */
+            Package package = new();
+            package.from = from;
+            package.to = to;
+            package.weight = weight;
+            package.height = height;
+            package.height = length;
+            package.height = width;
 
             // Return the best routes
-
-
             Map map = new Map("os");
 
             Route routeFast = map.getFastestRoute();
