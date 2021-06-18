@@ -12,29 +12,27 @@ namespace Parcel_Delivery_IT_solution.Controllers
         [System.Web.Mvc.HttpGet]
         public List<Route> Get(string from, string to, int height, int length, int width, int weight, string date)
         {
-            // Package package
-            Package package = new();
-            package.from = from;
-            package.to = to;
-            package.weight = weight;
-            package.height = height;
-            package.height = length;
-            package.height = width;
+            List<Route> RouteList = new List<Route>();
 
-            // Return the best routes
-            Map map = new Map("os");
+            int from2 = 1;
+            int to2 = 3;
 
-            Route routeFast = map.getFastestRoute();
-            Route routeCheapest = map.getCheapestRoute();
+            if (weight > 100000)
+            {
+                return RouteList;
+            }
 
-            // TODO: Call the business logic returning the route
+            GFG t = new GFG();
+            int time = t.shortestPathTime(from2, to2);
+            int price = t.shortestPathPrice(from2, to2);
+
+            Route route = new Route();
+            route.Time = time;
+            route.Price = price;
 
             // Create a Map object
-            
-
-            List<Route> RouteList = new List<Route>();
-            RouteList.Add(routeCheapest);
-            RouteList.Add(routeFast);
+           
+            RouteList.Add(route);
             return RouteList;
         }
     }
