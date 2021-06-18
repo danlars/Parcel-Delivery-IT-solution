@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" *ngIf="selectedInvoice">
     <div class="card-body">
         <div class="row">
             <div class="col-6">
@@ -20,8 +20,8 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1234</td>
-                            <td>{{today | date}}</td>
+                            <td>{{selectedInvoice.customer.customerId}}</td>
+                            <td>{{selectedInvoice.createdAt | date}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -37,13 +37,13 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Netcompany</td>
+                            <td>{{selectedInvoice.customer.name}}</td>
                         </tr>
                         <tr>
-                            <td>Kairo, 11566</td>
+                            <td>{{selectedInvoice.customer.cityOfResidence}}, {{selectedInvoice.customer.zipCode}}</td>
                         </tr>
                         <tr>
-                            <td>nc@netcompnay.eg</td>
+                            <td>{{selectedInvoice.customer.email}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -67,7 +67,7 @@
             <tbody class="foot-borderless">
                 <tr>
                     <td colspan="3" class="prices">TOTAL</td>
-                    <td class="bg-info text-end">1,575.00$</td>
+                    <td class="bg-info text-end">{{selectedInvoice.offer.price | number}}$</td>
                 </tr>
             </tbody>
         </table>
