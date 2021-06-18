@@ -47,5 +47,6 @@ export class BookingConfirmationComponent implements OnInit {
       createdAt: new Date()
     };
     this.invoiceService.insertInvoice(invoice);
+    this.router.navigate(["invoice"]);
   }
 }

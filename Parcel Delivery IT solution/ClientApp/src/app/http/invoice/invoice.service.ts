@@ -1,6 +1,5 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
 import { InvoiceInterface } from "src/app/interfaces/invoice.interface";
 import { StoreStateService } from "src/app/store/store-state.service";
 
@@ -8,8 +7,7 @@ import { StoreStateService } from "src/app/store/store-state.service";
 export class InvoiceService {
   constructor(
     private readonly http: HttpClient,
-    private readonly storeStateService: StoreStateService,
-    private readonly router: Router
+    private readonly storeStateService: StoreStateService
   ) {}
 
   insertInvoice(invoice: InvoiceInterface) {
@@ -28,9 +26,7 @@ export class InvoiceService {
         cityTo: invoice.bookingInformation.to,
         date: invoice.bookingInformation.departure,
       })
-      .subscribe(() => {
-        this.storeStateService.setInvoice(invoice);
-        this.router.navigate(["invoice"]);
-      });
+      .subscribe(() => {});
+      this.storeStateService.setInvoice(invoice);
   }
 }
