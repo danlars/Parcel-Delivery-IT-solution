@@ -224,7 +224,7 @@ namespace Parcel_Delivery_IT_solution.Controllers
             {
                 return jsonString = "{'Price':" + "invalid" + ", 'Time':" + "invalid" + "}";
             }
-            jsonString = "{'Price':" + price.toString() + ", 'Time':" + time.toString() + "}";
+            jsonString = "{'Price':" + price + ", 'Time':" + time + "}";
             return jsonString;
         }
     }
