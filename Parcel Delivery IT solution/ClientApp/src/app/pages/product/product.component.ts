@@ -14,16 +14,37 @@ import { StoreStateService } from "src/app/store/store-state.service";
 export class ProductComponent implements OnInit {
   selectedOffer: OfferInterface | null = null;
   offers$: Observable<OfferInterface[]>;
+  cities = [
+    "Amatave",
+    "Cairo",
+    "Dakar",
+    "De Kanariske Oeer",
+    "Guldkysten",
+    "Hvalbugten",
+    "Kap Guardafui",
+    "Kap St Marie",
+    "Kapstaden",
+    "Mocamique",
+    "Sierra Leone",
+    "Slavekysten",
+    "St. Helena",
+    "Suakin",
+    "Tanger",
+    "Tunis",
+  ];
   bookingForm = new FormGroup({
-    departure: new FormControl('', [Validators.required]),
-    from: new FormControl('', [Validators.required]),
-    to: new FormControl('', [Validators.required]),
-    height: new FormControl('', [Validators.required]),
-    length: new FormControl('', [Validators.required]),
-    weight: new FormControl('', [Validators.required]),
-    width: new FormControl('', [Validators.required]),
+    departure: new FormControl("", [Validators.required]),
+    from: new FormControl(this.cities[0], [Validators.required]),
+    to: new FormControl(this.cities[1], [Validators.required]),
+    height: new FormControl("", [Validators.required]),
+    length: new FormControl("", [Validators.required]),
+    weight: new FormControl("", [Validators.required]),
+    width: new FormControl("", [Validators.required]),
   });
-  constructor(private stateService: StoreStateService, private offerService: OfferService) {
+  constructor(
+    private stateService: StoreStateService,
+    private offerService: OfferService
+  ) {
     this.offers$ = this.stateService.offers$;
   }
 
@@ -33,7 +54,9 @@ export class ProductComponent implements OnInit {
         if (bookingInformation) {
           // Apply previous session input..
           this.bookingForm.patchValue(bookingInformation);
-          this.bookingForm.patchValue({departure: bookingInformation.departure.toISOString()});
+          this.bookingForm.patchValue({
+            departure: bookingInformation.departure.toISOString(),
+          });
         }
       }
     );
@@ -44,8 +67,12 @@ export class ProductComponent implements OnInit {
   }
 
   submitBookingInformation() {
-    const bookingInformation = JSON.parse(JSON.stringify(this.bookingForm.value)) as BookingInformationInterface;
-    const [year, month, day] = (bookingInformation.departure as unknown as string).split('-');
+    const bookingInformation = JSON.parse(
+      JSON.stringify(this.bookingForm.value)
+    ) as BookingInformationInterface;
+    const [year, month, day] = (
+      bookingInformation.departure as unknown as string
+    ).split("-");
     bookingInformation.departure = new Date(+year, +month, +day);
     this.offerService.getOffers(bookingInformation);
     this.setBookingInformation(bookingInformation);

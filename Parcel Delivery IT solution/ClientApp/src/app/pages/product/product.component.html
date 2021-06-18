@@ -5,21 +5,27 @@
       <div class="row mb-3">
         <div class="col-6">
           <label for="info_from" class="form-label">Destination from*</label>
-          <input
+          <select
             class="form-control"
             id="info_from"
             placeholder="Destination from..."
-            formControlName="from"
-          />
+            formControlName="from">
+            <option [disabled]="city === bookingForm.value.to" *ngFor="let city of cities" [ngValue]="city">
+              {{city}}
+            </option>
+          </select>
         </div>
         <div class="col-6">
           <label for="info_to" class="form-label">Destination to*</label>
-          <input
+          <select
             class="form-control"
             id="info_to"
             placeholder="Destination to..."
-            formControlName="to"
-          />
+            formControlName="to">
+            <option [disabled]="city === bookingForm.value.from" *ngFor="let city of cities" [ngValue]="city">
+              {{city}}
+            </option>
+          </select>
         </div>
         <div class="col-6">
           <label for="info_weight" class="form-label"
