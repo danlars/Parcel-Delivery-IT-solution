@@ -10,7 +10,7 @@ namespace Parcel_Delivery_IT_solution
     {
         public int CustomerId { get; set; }
 
-        public int RegistrationNumber { get; set; }
+        //public int RegistrationNumber { get; set; }
 
         public string Email { get; set; }
 
@@ -28,7 +28,7 @@ namespace Parcel_Delivery_IT_solution
 
         public int Width { get; set; }
 
-        public int Date { get; set; }
+        public string Date { get; set; }
 
         public string CityFrom { get; set; }
 

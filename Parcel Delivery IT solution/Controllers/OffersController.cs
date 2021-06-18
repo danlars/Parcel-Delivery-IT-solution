@@ -10,7 +10,7 @@ namespace Parcel_Delivery_IT_solution.Controllers
         public OffersController(){}
 
         [System.Web.Mvc.HttpGet]
-        public List<Route> Get(string from, string to, int height, int length, int width, int weight)
+        public List<Route> Get(string from, string to, int height, int length, int width, int weight, string date)
         {
             // Package package
             Package package = new();

@@ -13,7 +13,6 @@ namespace Parcel_Delivery_IT_solution.Controllers
         public Customer Get(int customerId)
         {
             // Returns the costumer information
-
             DbClient client = new DbClient();
 
             Customer customer = client.getCustomer(customerId);

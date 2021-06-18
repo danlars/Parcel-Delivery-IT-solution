@@ -14,7 +14,7 @@ namespace Parcel_Delivery_IT_solution
         {
             Customer customer = new Customer();
             customer.CustomerId = ID;
-            using (SqlConnection connection = new SqlConnection("Server=db-eit-dk1.database.windows.net\\MSSQLSERVER;Database=db-eit-dk1;User Id=admin-eit-dk1;Password=Eastindia4thewin;"))
+            using (SqlConnection connection = new SqlConnection("Server=db-eit-dk1.database.windows.net;Database=db-eit-dk1; Initial Catalog=db-eit-dk1; User Id=admin-eit-dk1;Password=Eastindia4thewin;"))
             {
                 string SqlCmdCustRegNo = "SELECT [RegistrationNumber], [Email], [CustommerName], [PhoneNumber], [ZipCode], [CityOfResidence] FROM Customer WHERE Customer_ID =" + ID.ToString();
                 SqlCommand command = new SqlCommand(SqlCmdCustRegNo, connection);
@@ -45,7 +45,7 @@ namespace Parcel_Delivery_IT_solution
             return customer;
         }
 
-        public static void SetOrder(Order order)
+        public void SetOrder(Order order)
         {
             string cmdString = "INSERT INTO [OrderTable] ([[Price], [PackageY], [PackageX], [PackageZ], [ShipmentDate], [FromCity], [ToCity]) VALUES (" + Convert.ToString(order.Price) + "," + Convert.ToString(order.Height) + "," + Convert.ToString(order.Width) + "," + Convert.ToString(order.Length) + "," + order.Date + "," + order.CityFrom + "," + order.CityTo + ")";
             using (SqlConnection connection = new SqlConnection("Server=db-eit-dk1.database.windows.net\\MSSQLSERVER;Database=db-eit-dk1;User Id=admin-eit-dk1;Password=Eastindia4thewin;"))
