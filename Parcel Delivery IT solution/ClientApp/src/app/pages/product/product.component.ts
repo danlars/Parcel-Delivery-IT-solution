@@ -43,7 +43,9 @@ export class ProductComponent implements OnInit {
   }
 
   submitBookingInformation() {
-    const bookingInformation = this.bookingForm.value as BookingInformationInterface;
+    const bookingInformation = JSON.parse(JSON.stringify(this.bookingForm.value)) as BookingInformationInterface;
+    const [year, month, day] = (bookingInformation.departure as unknown as string).split('-');
+    bookingInformation.departure = new Date(+year, +month, +day);
     this.offerService.getOffers(bookingInformation);
     this.setBookingInformation(bookingInformation);
   }

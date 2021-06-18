@@ -16,6 +16,10 @@
             <span class="fw-bold">Weight</span>:
             {{ selectedBookingInformation.weight }}kg
           </li>
+          <li>
+            <span class="fw-bold">Departure</span>:
+            {{ selectedBookingInformation.departure | date }}
+          </li>
           <li *ngIf="selectedOffer">
             <span class="fw-bold">Selected offer</span>:
             {{ selectedOffer.routeType }}
