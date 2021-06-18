@@ -31,6 +31,7 @@ namespace Parcel_Delivery_IT_solution.Controllers
             Route route = new Route();
             route.Time = time;
             route.Price = price;
+            route.RouteType = "Cheapest and fastest";
 
             // Create a Map object
            
