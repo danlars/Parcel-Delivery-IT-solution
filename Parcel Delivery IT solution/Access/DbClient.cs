@@ -47,8 +47,9 @@ namespace Parcel_Delivery_IT_solution
 
         public void SetOrder(Order order)
         {
-            string cmdString = "INSERT INTO [OrderTable] ([[Price], [PackageY], [PackageX], [PackageZ], [ShipmentDate], [FromCity], [ToCity]) VALUES (" + Convert.ToString(order.Price) + "," + Convert.ToString(order.Height) + "," + Convert.ToString(order.Width) + "," + Convert.ToString(order.Length) + "," + order.Date + "," + order.CityFrom + "," + order.CityTo + ")";
-            using (SqlConnection connection = new SqlConnection("Server=db-eit-dk1.database.windows.net\\MSSQLSERVER;Database=db-eit-dk1;User Id=admin-eit-dk1;Password=Eastindia4thewin;"))
+            string cmdString = "INSERT INTO [OrderTable] ([[Price], [PackageY], [PackageX], [PackageZ], [ShipmentDate] VALUES (" + Convert.ToString(order.Price) + "," + Convert.ToString(order.Height) + "," + Convert.ToString(order.Width) + "," + Convert.ToString(order.Length) + "," + order.Date + ")"; // + "," + order.CityFrom + "," + order.CityTo + ")";
+            //string cmdString = "INSERT INTO [OrderTable] ([[Price], [PackageY], [PackageX], [PackageZ], [ShipmentDate], [FromCity], [ToCity]) VALUES (" + Convert.ToString(order.Price) + "," + Convert.ToString(order.Height) + "," + Convert.ToString(order.Width) + "," + Convert.ToString(order.Length) + "," + order.Date + "," + order.CityFrom + "," + order.CityTo + ")";
+            using (SqlConnection connection = new SqlConnection("Server=db-eit-dk1.database.windows.net;Database=db-eit-dk1; Initial Catalog=db-eit-dk1; User Id=admin-eit-dk1;Password=Eastindia4thewin;"))
             {
                 SqlCommand command = new SqlCommand(cmdString, connection);
                 command.Connection.Open();
