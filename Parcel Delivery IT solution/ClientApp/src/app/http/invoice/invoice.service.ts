@@ -11,22 +11,22 @@ export class InvoiceService {
   ) {}
 
   insertInvoice(invoice: InvoiceInterface) {
+    const url = new URL(location.protocol + "//" + location.host + "/Package");
+    url.searchParams.append('customerId', invoice.customer.customerId as unknown as string);
+    url.searchParams.append('email', invoice.customer.email as unknown as string);
+    url.searchParams.append('name', invoice.customer.name as unknown as string);
+    url.searchParams.append('telephoneNumber', invoice.customer.telephoneNumber as unknown as string);
+    url.searchParams.append('price', invoice.offer.price as unknown as string);
+    url.searchParams.append('time', invoice.offer.time as unknown as string);
+    url.searchParams.append('height', invoice.bookingInformation.height as unknown as string);
+    url.searchParams.append('width', invoice.bookingInformation.width as unknown as string);
+    url.searchParams.append('length', invoice.bookingInformation.length as unknown as string);
+    url.searchParams.append('cityFrom', invoice.bookingInformation.from as unknown as string);
+    url.searchParams.append('cityTo', invoice.bookingInformation.to as unknown as string);
+    url.searchParams.append('date', invoice.bookingInformation.departure as unknown as string);
     this.http
-      .post("/Package", {
-        customerId: invoice.customer.customerId,
-        email: invoice.customer.email,
-        name: invoice.customer.name,
-        telephoneNumber: invoice.customer.telephoneNumber,
-        price: invoice.offer.price,
-        time: invoice.offer.time,
-        height: invoice.bookingInformation.height,
-        width: invoice.bookingInformation.width,
-        length: invoice.bookingInformation.length,
-        cityFrom: invoice.bookingInformation.from,
-        cityTo: invoice.bookingInformation.to,
-        date: invoice.bookingInformation.departure,
-      })
+      .post(url.href, {})
       .subscribe(() => {});
-      this.storeStateService.setInvoice(invoice);
+    this.storeStateService.setInvoice(invoice);
   }
 }
