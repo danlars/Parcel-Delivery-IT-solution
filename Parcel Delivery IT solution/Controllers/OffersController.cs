@@ -19,7 +19,7 @@ namespace Parcel_Delivery_IT_solution.Controllers
             int fromInt = dict[from];
             int toInt = dict[to];
 
-            if (weight > 100000)
+            if (weight > 100)
             {
                 return RouteList;
             }
